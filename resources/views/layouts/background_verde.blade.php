@@ -11,7 +11,7 @@
 
     <title>@yield('title')</title>
 
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/aee.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/lmts.css') }}" rel="stylesheet">
@@ -58,7 +58,7 @@
                   @if(Auth::check() && (Auth::user()->username == 'adelino.lmts' || Auth::user()->username == 'alana.lmts' || Auth::user()->username == 'mateus.lmts' || Auth::user()->username == 'eberson.lmts'))
                       <a href="{{ route("home") }}"><img src="{{asset('images/pikachinho.png')}}" style = "margin-left: 8px; margin-top:5px " height="170px" align = "left" ></a>
                   @else
-                      <a href="{{ route("home") }}"><img src="{{asset('images/aee.png')}}" style = "margin-left: 8px; margin-top:5px " height="170px" align = "left" ></a>
+                      <a href="{{ route("home") }}"><img src="{{asset('images/logo.png')}}" style = "margin-left: 8px; margin-top:5px " height="170px" align = "left" ></a>
                   @endif
 
                   <a target="_blank" href="http://lmts.uag.ufrpe.br/">

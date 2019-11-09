@@ -13,6 +13,7 @@ use App\ForumAluno;
 use App\MensagemForumAluno;
 use File;
 use Image;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -84,6 +85,10 @@ class AlunoController extends Controller{
     $instituicoes = \Auth::user()->instituicoes;
     $perfis = [[1,'Responsável'], [2,'Professor AEE']];
 
+    if (count($instituicoes) == 0) {
+      return redirect()->route("instituicao.cadastrar")->with('info','O cadastro de alunos, requer que uma instituicão esteja cadastrada.');
+    }
+
     return view("aluno.cadastrar", [
       'instituicoes' => $instituicoes,
       'perfis' => $perfis,
@@ -120,6 +125,10 @@ class AlunoController extends Controller{
   }
 
   public static function buscar(){
+
+    if (count(Auth::user()->instituicoes) == 0) {
+      return redirect()->route("instituicao.cadastrar")->with('info','O cadastro de alunos, requer que uma instituicão esteja cadastrada.');
+    }
 
     return view("aluno.buscarCPF", [
       'cpf' => [],
@@ -164,6 +173,7 @@ class AlunoController extends Controller{
       'imagem' => 'image|mimes:jpeg,png,jpg,jpe|max:3000',
       'nome' => ['required','min:2','max:191'],
       'sexo' => ['required'],
+      'cpf'=> ['unique:alunos'],
       'cid' => ['nullable','regex:/(^([a-zA-z])(\d)(\d)(\d)$)/u'],
       'descricaoCid' => ['required_with:cid'],
       'observacao' => ['nullable'],
@@ -188,11 +198,11 @@ class AlunoController extends Controller{
 
     if(\Auth::user()->username == $request->username){
       $validator->errors()->add('username','Você não pode colocar seu nome de usuário neste campo.');
-      return redirect()->back()->withErrors($validator->errors())->withInput();
+      return redirect()->back()->withErrors($validator->errors())->withInput()->with('cpf', $request->cpf);
     }
 
     if($validator->fails()){
-      return redirect()->back()->withErrors($validator->errors())->withInput();
+      return redirect()->back()->withErrors($validator->errors())->withInput()->with('cpf', $request->cpf);
     }
 
     $endereco = new Endereco();

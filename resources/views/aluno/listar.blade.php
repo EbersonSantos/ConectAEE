@@ -63,8 +63,8 @@
           @endif
 
           @if (\Session::has('password'))
-            <div class="alert alert-success">
-              <strong>Sucesso!</strong>
+            <div class="alert alert-info">
+              <strong>Atenção!</strong>
               {!! \Session::get('password') !!}
             </div>
           @endif

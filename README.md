@@ -1,3 +1,3 @@
-# EducacaoEspecial
-# Projeto AEE
+# ConectAEE
+# Educação Especial
 # LMTS - UFAPE

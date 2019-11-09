@@ -11,8 +11,8 @@
         <h1> <strong>ConectAEE</strong> </h1>
         <hr>
         <p class="text-justify">
-          Sendo um sistema pensado para que a educação inclusiva seja uma realidade nas escolas e
-          instituições de ensino do Brasil, o ConectAAE dá suporte ao acompanhamento de alunos
+          É um sistema pensado para que a educação inclusiva seja uma realidade nas escolas e
+          instituições de ensino do Brasil e que dá suporte ao acompanhamento de alunos
           que necessitam de Atendimento Educacional Especializado (AEE), permitindo uma maior
           integração entre escola, família e profissionais da Saúde, uma vez que a troca de informações
           entre cada um desses indivíduos é indispensável.

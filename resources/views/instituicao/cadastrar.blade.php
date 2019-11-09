@@ -22,7 +22,18 @@
         </div>
 
         <div class="panel-body panel-body-cadastro">
+
+
           <div class="col-md-8 col-md-offset-2">
+
+            @if (\Session::has('info'))
+              <div class="alert alert-info">
+                <strong>
+                  {!! \Session::get('info') !!}
+                </strong>
+              </div>
+            @endif
+
             <form method="POST" action="{{ route("instituicao.criar") }}">
               {{ csrf_field() }}
 
